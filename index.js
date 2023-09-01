@@ -12,6 +12,7 @@ try {
     },
     json: {
       signal: "restart",
+      wait: 5,
       signal: "kill",
     },
   });
