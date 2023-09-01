@@ -12,6 +12,7 @@ try {
     },
     json: {
       signal: "restart",
+      signal: "kill",
     },
   });
 } catch (error) {
