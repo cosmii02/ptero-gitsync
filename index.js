@@ -12,7 +12,7 @@ try {
       Authorization: `Bearer ${apiKey}`,
     },
     json: {
-      signal: "restart",
+      signal: "kill",
     },
   }, (error, response, body) => {
     if (error) {
@@ -29,7 +29,7 @@ try {
         Authorization: `Bearer ${apiKey}`,
       },
       json: {
-        signal: "kill",
+        signal: "start",
       },
     }, (error, response, body) => {
       if (error) {
