@@ -14,6 +14,12 @@ try {
     json: {
       signal: "restart",
     },
+  }, (error, response, body) => {
+    if (error) {
+      console.error("Error sending restart:", error);
+    } else {
+      console.log("Successfully sent restart:", body);
+    }
   });
 
   // Sending 'kill' signal after 5 seconds
@@ -25,9 +31,16 @@ try {
       json: {
         signal: "kill",
       },
+    }, (error, response, body) => {
+      if (error) {
+        console.error("Error sending kill:", error);
+      } else {
+        console.log("Successfully sent kill:", body);
+      }
     });
   }, 5000);  // 5 seconds delay
 
 } catch (error) {
   core.setFailed(error.message);
+  console.error("Caught exception:", error);
 }
