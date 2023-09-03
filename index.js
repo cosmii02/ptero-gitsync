@@ -12,7 +12,7 @@ try {
       Authorization: `Bearer ${apiKey}`,
     },
     json: {
-      signal: "kill",
+      signal: "restart",
     },
   }, (error, response, body) => {
     if (error) {
@@ -29,7 +29,7 @@ try {
         Authorization: `Bearer ${apiKey}`,
       },
       json: {
-        signal: "start",
+        signal: "kill",
       },
     }, (error, response, body) => {
       if (error) {
@@ -38,7 +38,7 @@ try {
         console.log("Successfully sent kill:", body);
       }
     });
-  }, 5000);  // 5 seconds delay
+  }, 7000);  // 7 seconds delay
 
 } catch (error) {
   core.setFailed(error.message);
