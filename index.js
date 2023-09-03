@@ -16,7 +16,7 @@ try {
     },
   }, (error, response, body) => {
     if (error) {
-      console.error("Error sending restart:", error);
+      core.setFailed(`Error sending restart: ${error}`);
     } else {
       console.log("Successfully sent restart:", body);
     }
@@ -33,7 +33,7 @@ try {
       },
     }, (error, response, body) => {
       if (error) {
-        console.error("Error sending kill:", error);
+        core.setFailed(`Error sending kill: ${error}`);
       } else {
         console.log("Successfully sent kill:", body);
       }
@@ -41,6 +41,6 @@ try {
   }, 7000);  // 7 seconds delay
 
 } catch (error) {
-  core.setFailed(error.message);
+  core.setFailed(`Caught exception: ${error.message}`);
   console.error("Caught exception:", error);
 }
